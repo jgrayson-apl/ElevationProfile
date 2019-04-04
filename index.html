@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <!-- Responsive -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <!-- End Responsive -->
+    <link rel=icon href="./assets/favicon.ico" sizes="32x32" type="image/vnd.microsoft.icon">
+    <link rel="stylesheet" href="https://s3-us-west-1.amazonaws.com/patterns.esri.com/files/calcite-web/1.2.5/css/calcite-web.min.css">
+    <link rel="stylesheet" href="./styles/main.css">
+    <link rel="stylesheet" href="https://js.arcgis.com/4.11/esri/css/main.css">
+    <script src="./app/dojo.js"></script>
+    <script src="https://js.arcgis.com/4.11/"></script>
+    <script>require(["Application/init"]);</script>
+  </head>
+  <body class="configurable-application--loading">
+
+    <!-- DETAILS -->
+    <div class="js-modal modal-overlay" data-modal="app-details-dialog">
+      <div class="modal-content column-14" aria-labelledby="modal" role="dialog">
+        <span class="js-modal-toggle esri-interactive icon-ui-close right" aria-label="close-modal"></span>
+        <h3 class="trailer-half text-blue">Configurable Application</h3>
+        <div class="panel">
+          This application loads a web map or web scene and provides simple mapping capabilities via the ArcGIS API for JavaScript 4.x.
+        </div>
+        <div class="margin-left-2 leader-quarter">
+          This application is built using:
+          <ul>
+            <li>
+              <a href="https://developers.arcgis.com/javascript/" target="_blank">Esri ArcGIS API for Javascript 4.x</a>
+            </li>
+            <li>
+              <a href="https://github.com/Esri/application-base-js" target="_blank">Esri ApplicationBase</a>
+              <span>&nbsp;&&nbsp;</span>
+              <a href="https://github.com/Esri/configurable-app-examples-4x-js" target="_blank">Configurable App Example</a>
+            </li>
+            <li>
+              <a href="http://esri.github.io/calcite-web/" target="_blank">Esri Calcite Web Framework</a>
+            </li>
+          </ul>
+        </div>
+        <div class="leader-half">
+          <img src="./assets/esri_science_of_where.png" class="left">
+          <div class="text-right">
+            <button class="btn js-modal-toggle">OK</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TOP NAVIGATION -->
+    <header id="header-panel" class="panel panel-blue panel-no-padding panel-no-border padding-left-1 padding-right-1">
+      <!-- APP TITLE -->
+      <span id="app-title-node" class="top-nav-title text-white"></span>
+
+      <!-- RIGHT ALIGNED -->
+      <nav class="top-nav-list right" role="navigation">
+
+        <!-- SIGN IN NODE -->
+        <span id="sign-in-node" class="top-nav-link text-white esri-interactive icon-ui-user margin-left-1">Sign In</span>
+
+        <!-- USER NODE -->
+        <div id="user-node" class="dropdown js-dropdown margin-left-1 text-white hide">
+          <span class="top-nav-link icon-ui-user text-white margin-left-1 esri-interactive js-dropdown-toggle" tabindex="0" aria-haspopup="true" aria-expanded="false">
+            <span id="user-firstname-node"></span>
+          </span>
+          <nav class="dropdown-menu dropdown-right" role="menu">
+            <span class="dropdown-title">
+              <span id="user-fullname-node"></span>
+              <br>
+              <img id="user-thumb-node" src="">
+              <small><span id="username-node"></span></small>
+            </span>
+            <span id="sign-out-node" class="dropdown-link esri-interactive icon-ui-sign-out" role="menu-item">Sign Out</span>
+          </nav>
+        </div>
+
+        <!-- APP DETAILS -->
+        <span class="top-nav-link icon-ui-description text-white js-modal-toggle margin-left-1 esri-interactive" data-modal="app-details-dialog"></span>
+
+      </nav>
+    </header>
+
+    <!-- MAIN CONTAINER -->
+    <div id="main-container">
+      <!-- SLIDES PANEL -->
+      <div id="slides-panel" class="panel panel-dark-blue animate-fade-in hide">
+        <div id="slides-panel-toggle" class="icon-ui-up-arrow font-size-2 esri-interactive" title="toggle slides panel"></div>
+        <!--<button class="btn-link icon-ui-left icon-ui-flush font-size-7"></button>-->
+        <div id="slides-container-parent">
+          <div id="slides-container"></div>
+        </div>
+        <!--<button class="btn-link icon-ui-right icon-ui-flush font-size-7"></button>-->
+      </div>
+      <!-- VIEW CONTAINER -->
+      <div id="view-container"></div>
+      <!-- PROFILE PANEL -->
+      <div id="profile-panel" class="panel panel-dark-blue panel-no-padding panel-no-border">
+        <div id="chart-node"></div>
+      </div>
+    </div>
+    <!-- NOTIFICATIONS -->
+    <div id="notifications-node"></div>
+  </body>
+</html>

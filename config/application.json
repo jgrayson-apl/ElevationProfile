@@ -1,0 +1,27 @@
+{
+  "title": "Elevation Profiles & Interesting Places",
+  "appid": "",
+  "group": "",
+  "webmap": "",
+  "webscene": "5c1644a2dcc84afca7b0799f687c606f",
+  "portalUrl": "https://www.arcgis.com",
+  "oauthappid": "hrFP8yDGOiGFx4ub",
+  "proxyUrl": "https://apl.esri.com/proxy/DotNet/proxy.ashx",
+  "units": "dual",
+  "helperServices": {
+    "geometry": {
+      "url": null
+    },
+    "printTask": {
+      "url": null
+    },
+    "elevationSync": {
+      "url": null
+    },
+    "geocode": [
+      {
+        "url": null
+      }
+    ]
+  }
+}

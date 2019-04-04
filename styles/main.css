@@ -1,0 +1,207 @@
+html,
+body {
+  margin                   : 0;
+  padding                  : 0;
+  width                    : 100%;
+  height                   : 100%;
+  font-size                : 100%;
+  -webkit-text-size-adjust : 100%;
+  -moz-text-size-adjust    : 100%;
+  -ms-text-size-adjust     : 100%;
+  overflow                 : hidden;
+  background               : #004575;
+}
+
+body * {
+  outline : none;
+}
+
+.configurable-application--loading {
+  text-align : center;
+  display    : block;
+  height     : 100%;
+  width      : 100%;
+  overflow   : hidden;
+  background : #004575 url(../assets/loader-ie9.gif) no-repeat center center;
+}
+
+#header-panel {
+  z-index    : 99;
+  box-shadow : 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+#main-container {
+  margin         : 0;
+  padding        : 0;
+  height         : 100%;
+  width          : 100%;
+  display        : flex;
+  flex-direction : column;
+}
+
+#slides-panel {
+  position       : relative;
+  flex-shrink    : 0;
+  flex-grow      : 0;
+  display        : flex;
+  flex-direction : row;
+}
+
+#slides-panel-toggle {
+  z-index  : 99;
+  position : absolute;
+  bottom   : -10px;
+  left     : calc(50% - 20px);
+}
+
+#slides-container-parent {
+  flex-shrink : 1;
+  flex-grow   : 1;
+  overflow-y  : hidden;
+  overflow-x  : auto;
+}
+
+#slides-container {
+  width           : max-content;
+  display         : flex;
+  flex-wrap       : nowrap;
+  flex-grow       : 1;
+  justify-content : space-around;
+  overflow        : hidden;
+}
+
+.slide-node {
+  position    : relative;
+  user-select : none;
+  margin      : 0 1px 5px 1px;
+  border      : solid 1px transparent;
+  transition  : all 0.5s linear;
+}
+
+.slide-node.goTo {
+  border-color : yellow;
+  transition   : all 0.5s linear;
+}
+
+.slide-thumb {
+  height     : 100%;
+  box-shadow : 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.slide-label {
+  position    : absolute;
+  bottom      : 0;
+  padding     : 4px;
+  width       : calc(100% - 8px);
+  max-height  : 2.6em;
+  overflow-y  : hidden;
+  font-size   : 8pt;
+  font-weight : bold;
+  text-align  : center;
+  color       : #ededed;
+  text-shadow : 1px 1px 0 #000;
+  background  : rgba(0, 0, 0, 0.2);
+  transition  : all 0.3s linear;
+}
+
+.slide-node:hover .slide-label {
+  color       : #fff;
+  text-shadow : none;
+  background  : rgba(0, 0, 0, 0.6);
+  transition  : all 0.6s linear;
+}
+
+#view-container {
+  flex-shrink : 1;
+  flex-grow   : 1;
+  margin      : 0;
+  padding     : 0;
+}
+
+#profile-panel {
+  position    : relative;
+  flex-shrink : 0;
+  flex-grow   : 0;
+  height      : 150px;
+}
+
+.profile-details {
+  position  : absolute;
+  bottom    : 5px;
+  left      : 5px;
+  max-width : 45%;
+  height    : 1.5em;
+  overflow  : hidden;
+}
+
+#chart-node {
+  width  : 100%;
+  height : 100%;
+}
+
+#user-thumb-node {
+  height         : 36px;
+  border-radius  : 18px;
+  vertical-align : middle;
+}
+
+.top-nav-link:hover, .top-nav-link:focus {
+  color               : #fff;
+  border-bottom-color : #fff;
+}
+
+.esri-widget,
+.esri-widget * {
+  color            : #fff !important;
+  background-color : #0079c1 !important;
+}
+
+.esri-sketch__button:hover {
+  background : #bcdaed !important;
+  color      : #0079c1 !important;
+}
+
+.esri-sketch__button.esri-sketch__button--selected,
+.esri-sketch__button.esri-sketch__button--selected:hover {
+  background : #004575 !important;
+  color      : #ffff00 !important;
+}
+
+.drawer-nav {
+  width : 350px;
+}
+
+.view-loading-node {
+  box-shadow : none !important;
+}
+
+.view-loading-node .loader-text {
+  color       : #fff;
+  padding-top : 3em !important;
+}
+
+::-webkit-scrollbar {
+  cursor : col-resize;
+  width  : 12px;
+  height : 12px;
+}
+
+::-webkit-scrollbar-track {
+  background         : #333;
+  -webkit-box-shadow : inset 0 0 6px rgba(255, 255, 255, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+  background : #1a4866;
+  border     : solid 1px #0079c1;
+}
+
+.esri-sketch__tool-section:first-of-type {
+  display : none;
+}
+
+.esri-sketch__button.esri-icon-map-pin {
+  display : none;
+}
+
+
