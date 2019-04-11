@@ -339,33 +339,78 @@ define([
         view: view
       });
 
-      const indicatorGraphic = new Graphic({
+      const verticalOffset = {
+        screenLength: 60,
+        maxWorldLength: 1000,
+        minWorldLength: 200
+      };
+      const callout = {
+        type: "line",
+        size: 1.5,
+        color: "#0079c1",
+        border: {
+          color: "#fff"
+        }
+      };
+      const createElevationSymbol = (elevation) => {
+        return {
+          type: "point-3d",
+          symbolLayers: [
+            {
+              type: "text",
+              font: {
+                family: "Avenir Next"
+              },
+              text: `${number.format(elevation, { places: 1 })} m`,
+              halo: { color: "#0079c1", size: 3.5 },
+              material: { color: "#fff" },
+              size: 11
+            }
+          ],
+          verticalOffset: verticalOffset,
+          callout: callout
+        };
+      };
+
+      const indicatorLocationGraphic = new Graphic({
         symbol: {
           type: "point-3d",
           symbolLayers: [
             {
-              type: "object",
-              width: 50,
-              height: 50,
-              depth: 50,
-              resource: { primitive: "sphere" },
-              material: { color: "#0079c1" }
+              type: "icon",
+              size: 13,
+              resource: { primitive: "circle" },
+              material: { color: "#0079c1" },
+              outline: {
+                color: "#fff",
+                width: 5
+              }
             }
           ]
         }
       });
-      const indicatorGraphicsLayer = new GraphicsLayer({ title: "Indicator", graphics: [indicatorGraphic] });
+      const indicatorLabelGraphic = new Graphic({
+        symbol: createElevationSymbol(0.0)
+      });
+
+      const indicatorGraphicsLayer = new GraphicsLayer({
+        title: "Indicator",
+        elevationInfo: { mode: "relative-to-ground" },
+        graphics: [indicatorLocationGraphic, indicatorLabelGraphic]
+      });
       view.map.add(indicatorGraphicsLayer);
 
       elevationProfileChart.on("update-indicator", evt => {
         const coords = evt.coords || [0.0, 0.0, -10000.0, 0.0];
-        indicatorGraphic.geometry = {
+        const indicatorLocation = {
           type: "point",
           spatialReference: view.spatialReference,
-          hasZ: true, hasM: true,
-          x: coords[0], y: coords[1],
-          z: coords[2], m: coords[3]
+          hasZ: false, hasM: false,
+          x: coords[0], y: coords[1]          
         };
+        indicatorLocationGraphic.geometry = indicatorLocation;
+        indicatorLabelGraphic.geometry = indicatorLocation;
+        indicatorLabelGraphic.symbol = createElevationSymbol(coords[2]);
       });
 
       // HIGHLIGHT //
@@ -438,3 +483,22 @@ define([
 
   });
 });
+
+
+/*{
+              type: "object",
+              width: 50,
+              height: 50,
+              depth: 50,
+              resource: { primitive: "sphere" },
+              material: { color: "#0079c1" }
+            }*/
+
+/*{
+             type: "picture-marker",
+             url: "./assets/BluePin1LargeB.png",
+             width: "24px",
+             height: "24px",
+             xoffset: 0,
+             yoffset: 10
+           },*/
