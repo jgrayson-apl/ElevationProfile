@@ -177,7 +177,7 @@ define([
 
         // RENDER //
         this._profileChart.render();
-
+        
         // RESIZE //
         on(window, "resize", () => {
           this._profileChart.resize();
