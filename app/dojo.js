@@ -27,7 +27,7 @@
     packages: [
       { name: "calcite", location: "https://s3-us-west-1.amazonaws.com/patterns.esri.com/files/calcite-web/1.2.5/js", main: "calcite-web.min" },
       { name: "config", location: distPath + "/config" },
-      { name: "ApplicationBase", location: appPath + "/application-base-js", main: "ApplicationBase" },
+      { name: "ApplicationBase", location: distPath + "/application-base-js", main: "ApplicationBase" },
       { name: "Application", location: distPath + "/app", main: "Main" }
     ]
   };
